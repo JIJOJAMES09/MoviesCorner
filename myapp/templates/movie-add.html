@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block title_block%}
+<title>movie-add</title>
+{%endblock%}
+
+{%block body_block%}
+
+<style>
+    body{
+        background-image: radial-gradient( circle 400px at 6.8% 8.3%,  rgba(255,244,169,1) 0%, rgba(255,244,234,1) 100.2% );
+    }
+</style>
+
+<div class="row">
+<div class="col-4"></div>
+<div class="col-4">
+<form action="" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="Add" class="btn btn-primary">
+</form>
+</div>
+<div class="col-4"></div>
+</div>
+{%endblock%}

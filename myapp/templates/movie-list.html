@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+{%block title_block%}
+
+<title>movie-list</title>
+
+{%endblock%}
+{%block body_block%}
+<style>
+    body{
+        background-image: radial-gradient( circle farthest-corner at 1.5% 1.4%,  rgba(159,227,255,1) 0%, rgba(255,177,219,1) 100.2% );
+    }
+</style>
+
+<div class="container" >
+    <div class="col-2"></div>
+    <div class="">
+        <table class="table">
+            <caption class="caption-top link-primary">List of All Movie's</caption>
+            <tr>
+                <th>SlNo</th>
+                <th>MovieName</th>
+                <th>Year</th>
+                <th>Runtime</th>
+                <th>Language</th>
+                <th>Genres</th>
+                <th>Poster</th>
+                <th>Action</th>
+            </tr>
+            {%for m in movies%}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{m.movie_name}}</td>
+                <td>{{m.year}}</td>
+                <td>{{m.runtime}}</td>
+                <td>{{m.language}}</td>
+                <td>{{m.genres}}</td>
+                <td>
+
+                    <img class="card-img-top" src="http://127.0.0.1:8000/{{m.poster_image}}" height="200px" alt="..." /> 
+                    
+                     
+                </td>
+                <td>
+                    <a href="{%url 'movie-detail' m.id %}" class="btn btn-outline-primary">View</a>
+                </td>
+
+            </tr>
+            {%endfor%}
+
+        </table>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+{%endblock%}
+
+
